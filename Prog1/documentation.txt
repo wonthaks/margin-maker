@@ -1,0 +1,49 @@
+Requirements/Assumptions for the program
+
+- The first line of the input text file should be of this format: right_margin_inch_integer left_margin_inch_integer font_point_size_integer
+
+- The rest of the input file should consist of the text passages to be formatted by the program. Each line of these text passages should only consist of up to 80 characters. 
+
+
+
+- For this program, I assumed that if the line that is read ends before the character limit is reached (i.e. ends before 80 characters in the line), the next line to be read is the start of a new paragraph. 
+
+- Also, I assumed that the maximum input line is 80 characters long.
+
+- I used the formula 1 pt (point size) = 1/72 inch to write this program.
+
+- I also assumed that the margins that are passed in as arguments for the program are reasonable and any that cannot fit a word input will result in an error and the program will stop immediately after displaying an error message.
+
+
+
+Algorithm:
+
+- The first line that is read in contains the left and right margins as well as the point size of the font. These will be used to format the text accordingly.
+
+- For each line that is read in afterwards:
+
+    1) Split the line into words
+
+    2) For each word:
+
+      a) Keep track of the character count. (If the word is longer than the
+
+         character limit, display an error message and stop)
+
+      b) If the word can be inserted into the line, do so.
+
+      c) But if it can not, make a new line and insert the word there.
+
+      d) After the word is inserted, check if a space can be inserted after.
+
+      e) If it can, do so. But, if it can not, make a new line and insert it there.
+
+      f) After all this, check if the word ends with a period ('.').
+
+      g) If it does, add an extra space if able. Otherwise, make a new line and add
+
+         it there.
+
+- Check if the line that was analyzed contains less characters than the limit, and if it does, check if it ended with something that denotes that it was the end of a sentence (i.e. '.', '!', '?')
+
+- If so, then end the line there, and start a new line (since it is a new paragraph now).
